@@ -1,4 +1,4 @@
-# Dotfile
+# dotfiles
 这个仓库是我的配置文件啊，目前还非常的粗糙
 
 # Shell
