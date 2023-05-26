@@ -1,0 +1,24 @@
+theme = "tokyonight"
+
+[editor]
+line-number = "relative"
+color-modes = true
+cursorline = true
+bufferline = "multiple"
+true-color = true
+
+[editor.lsp]
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+
+[keys.insert]
+j = { k = "normal_mode" }
