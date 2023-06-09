@@ -7,3 +7,11 @@ $Env:MAMBA_EXE = "C:\Mine\PackageManager\Library\bin\micromamba.exe"
 #endregion
 
 
+
+#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+If (Test-Path "C:\Users\ccccr\scoop\apps\miniconda3\current\Scripts\conda.exe") {
+    (& "C:\Users\ccccr\scoop\apps\miniconda3\current\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+}
+#endregion
+
