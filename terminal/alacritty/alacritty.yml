@@ -4,7 +4,7 @@ import:
 font:
  size: 12.0
  normal:
-   family: CaskaydiaCove Nerd Font Mono
+   family: CaskaydiaCove Nerd Font
 
 shell:
  program: C:\Users\ccccr\scoop\apps\nu\current\nu.exe
@@ -13,7 +13,5 @@ window:
   opacity: 0.9
   dynamic_title: true 
   
-  startup_mode: Fullscreen
-
   dynamic_padding: true
   decorations: none
