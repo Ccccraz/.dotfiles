@@ -11,4 +11,3 @@ fn get {
 fn mamba {
   |@a| e:micromamba $@a
 }
-
