@@ -1,0 +1,4 @@
+[shell]
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+disabled = false
