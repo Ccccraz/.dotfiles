@@ -17,16 +17,16 @@ disabled = false
 #threshold = 100
 #style = 'bold green'
 
-[os]
-format = "[$symbol]($style)"
-style = "bold blue"
-disabled = false
+#[os]
+#format = "[$symbol]($style) "
+#style = "bold blue"
+#disabled = false
 
-[os.symbols]
-Ubuntu = "🎯 "
-Arch = "🎗️ "
-Debian = "🌀 "
-Windows = "🪟 "
+#[os.symbols]
+#Ubuntu = "🎯"
+#Arch = "🎗️"
+#Debian = "🌀"
+#Windows = "🪟"
 
 #[memory_usage]
 #format = '$symbol[${ram_pct}]($style)'
