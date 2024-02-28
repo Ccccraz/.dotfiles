@@ -17,6 +17,9 @@ disabled = false
 #threshold = 100
 #style = 'bold green'
 
+[conda]
+ignore_base = false
+
 [os]
 format = "[$symbol]($style) "
 style = "bold blue"
