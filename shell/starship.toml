@@ -21,14 +21,11 @@ disabled = false
 ignore_base = false
 
 [os]
-format = "[$symbol]($style) "
+format = "[($name )]($style)"
 style = "bold blue"
 disabled = false
 
 [os.symbols]
-Ubuntu = "🎯"
-Arch = "🎗️"
-Debian = "🌀"
 Windows = "🪟"
 
 #[memory_usage]
