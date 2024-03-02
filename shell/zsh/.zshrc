@@ -2,6 +2,7 @@ eval "$(starship init zsh)"
 
 alias code="code-insiders"
 alias ll="ls -l"
+alias mamba="micromamba"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -15,3 +16,24 @@ zstyle :compinstall filename '/home/ccccr/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE='/usr/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/ccccr/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
+micromamba activate base
+
+if [[ -f /etc/arch-release ]]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
