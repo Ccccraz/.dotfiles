@@ -1,3 +1,8 @@
+eval "$(starship init zsh)"
+
+alias code="code-insiders"
+alias ll="ls -l"
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
