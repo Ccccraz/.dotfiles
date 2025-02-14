@@ -7,7 +7,3 @@ Invoke-Expression (&starship init powershell)
 
 Set-Alias -Name get -Value aria2c
 Set-Alias -Name mamba -Value micromamba
-
-# Activate mamba base environment
-mamba activate base
-
