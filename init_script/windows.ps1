@@ -189,3 +189,18 @@ $result.FailedApps | ConvertTo-Json | Out-File "InstallErrors_$timestamp.json"
 
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 scoop install wget curl
+
+# 创建 .gitconfig 的符号链接
+$gitconfigPath = Join-Path $HOME .gitconfig
+New-Item -ItemType Directory -Path (Split-Path $gitconfigPath -Parent) -Force | Out-Null
+New-Item -Type SymbolicLink -Path $gitconfigPath -Target $HOME\.dotfiles\tools\git\.gitconfig
+
+# 创建 PowerShell Profile 的符号链接
+$profileParent = Split-Path $PROFILE -Parent
+New-Item -ItemType Directory -Path $profileParent -Force | Out-Null
+New-Item -Type SymbolicLink -Path $PROFILE -Target $HOME\.dotfiles\shell\PowerShell\Microsoft.PowerShell_profile.ps1
+
+# 创建 starship.toml 的符号链接
+$starshipDir = Join-Path $HOME .config
+New-Item -ItemType Directory -Path $starshipDir -Force | Out-Null
+New-Item -Type SymbolicLink -Path (Join-Path $starshipDir starship.toml) -Target $HOME\.dotfiles\shell\starship.toml
