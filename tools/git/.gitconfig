@@ -1,0 +1,12 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = HuYang
+	email = hy.ccccr@gmail.com
+[https]
+	proxy = http://127.0.0.1:20172
+[http]
+	proxy = http://127.0.0.1:20172
