@@ -1,3 +1,5 @@
+command_timeout = 1000
+
 [username]
 disabled = false
 show_always = true
@@ -7,19 +9,6 @@ unknown_indicator = 'mystery shell'
 style = 'cyan bold'
 disabled = false
 
-#[battery]
-#full_symbol = '🔋 '
-#charging_symbol = '⚡️'
-#discharging_symbol = '💦 '
-#disabled = false
-
-#[[battery.display]]
-#threshold = 100
-#style = 'bold green'
-
-[conda]
-ignore_base = false
-
 [os]
 format = "[($name )]($style)"
 style = "bold blue"
@@ -27,16 +16,3 @@ disabled = false
 
 [os.symbols]
 Windows = "🪟"
-
-#[memory_usage]
-#format = '$symbol[${ram_pct}]($style)'
-#disabled = false
-#threshold = -1
-#symbol = '🐏 '
-#style = 'bold dimmed green'
-
-#[time]
-#disabled = false
-#format = 'at 🕙 [$time]($style) '
-#time_format = '%T'
-#utc_time_offset = '+8'
