@@ -88,14 +88,9 @@ $apps = [ordered]@{
   "academic"   = @("DigitalScholar.Zotero", "Obsidian.Obsidian")
   "java"       = @("BellSoft.LibericaJDK.17")
   "frontend"   = @("Volta.Volta", "Ruihu.Apifox")
+  "work"       = @("ByteDance.Feishu")
+  "unity"      = @("Unity.UnityHub")
 }
-
-# $unity = @(
-#   "Unity.UnityHub"
-#   "Unity.Unity.2020"
-#   "Version"
-#   "2022.3.14f1"
-# )
 
 function Install-Winget {
   param(
