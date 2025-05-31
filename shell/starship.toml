@@ -10,9 +10,6 @@ style = 'cyan bold'
 disabled = false
 
 [os]
-format = "[($name )]($style)"
+format = "[$symbol]($style)"
 style = "bold blue"
 disabled = false
-
-[os.symbols]
-Windows = "🪟"
