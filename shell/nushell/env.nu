@@ -25,6 +25,7 @@ if $nu.os-info.name == "macos" {
     path add "/opt/homebrew/bin"
 } else if $nu.os-info.name == "windows" {
 } else {
+    path add "/home/linuxbrew/.linuxbrew/bin/brew"
 }
 
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
