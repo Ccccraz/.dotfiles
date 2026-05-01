@@ -1,3 +1,12 @@
 [user]
 	name = HuYang
-	email = hy.ccccr@gmail.com
+	email = huyangcommit@gmail.com
+	signingkey = ~/.ssh/main.pub
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true

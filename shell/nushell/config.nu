@@ -25,3 +25,6 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 source ~/.cache/carapace/init.nu
 
 $env.config.show_banner = false
+
+# Tmux
+alias tmux = tmux -f ~/.config/tmux/tmux.conf
