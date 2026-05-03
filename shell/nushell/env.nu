@@ -28,6 +28,8 @@ if $nu.os-info.name == "macos" {
     path add "/home/linuxbrew/.linuxbrew/bin/brew"
 }
 
+$env.EDITOR = "code --wait"
+
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
 let cache_dir = if $nu.os-info.name == "windows" {
