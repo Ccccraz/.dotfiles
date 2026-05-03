@@ -1,6 +1,4 @@
 # ~/.config/yazi/keymap.toml
 
 [mgr]
-prepend_keymap = [
-  { on = "O", run = "shell -- code .", desc = "Open current folder in VS Code" },
-]
+prepend_keymap = []
