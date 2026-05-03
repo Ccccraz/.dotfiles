@@ -2,7 +2,7 @@
 description: 快速执行模式，使用 deepseek-v4-flash 低推理成本快速完成任务
 mode: primary
 model: deepseek/deepseek-v4-flash
-reasoningEffort: medium
+reasoningEffort: max
 permission:
   read: allow
   edit: allow
