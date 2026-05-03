@@ -28,7 +28,7 @@ if $nu.os-info.name == "macos" {
     path add "/home/linuxbrew/.linuxbrew/bin/brew"
 }
 
-$env.EDITOR = "code --wait"
+$env.EDITOR = "code"
 
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
