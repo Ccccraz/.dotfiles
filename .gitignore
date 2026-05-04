@@ -411,4 +411,5 @@ $RECYCLE.BIN/
 # Local AI skills (do not track)
 ai/opencode/skills/planning-with-files/
 ai/opencode/skills/ui-ux-pro-max/
+ai/opencode/opencode-notifier-state.json
 
