@@ -1,0 +1,4 @@
+interface:
+  display_name: "生成 Commit Message"
+  short_description: "根据暂存区差异生成规范的 conventional commit message"
+  default_prompt: "使用 $ccccr-commit-message 根据暂存区差异生成 commit message。"

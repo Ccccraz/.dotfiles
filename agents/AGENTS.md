@@ -1,0 +1,104 @@
+## 1. 语言与交互规范
+
+- **对话语言**: 中文
+- **代码注释/输出**: 英文
+- **Shell 约定**: 面向用户的终端交互式命令示例使用 `nushell` 语法；脚本（如 `.sh`）使用 `bash` 语法；agent 内部执行命令的 shell 不受此约束。
+
+## 2. KISS 原则
+
+- **简单性**: 设计必须在实现和接口上保持简单；实现简单性比接口简单性更重要。简单性是设计中最重要的考虑。
+- **正确性**: 设计应在所有可观察方面保持正确；但在取舍中，简单性略优先于正确性。
+- **一致性**: 设计不应过度不一致。某些情况下可以为简单性牺牲一致性；与其引入实现复杂性或不一致性，不如舍弃处理少见场景的设计部分。
+- **完整性**: 设计应覆盖尽可能多的重要实际场景；当完整性会危及实现简单性时，必须牺牲完整性。
+
+## 3. 通用设计原则
+
+### A. SOLID 五原则
+
+- **单一职责（SRP）**: 一个模块/函数/类只应有一个主要变化原因。
+- **开闭原则（OCP）**: 对扩展开放、对修改关闭；新增能力优先通过扩展实现。
+- **里氏替换（LSP）**: 子类型必须可以替换父类型，并保持既有行为契约不被破坏。
+- **接口隔离（ISP）**: 使用多个小而专注的接口，避免依赖臃肿接口中不需要的方法。
+- **依赖倒置（DIP）**: 依赖抽象而非具体实现；高层与低层都应面向抽象协作。
+
+### B. 其他通用原则
+
+- **关注点分离（SoC）**: 按职责分层组织代码（如接口层、业务层、数据访问层），层间边界清晰。
+- **组合优于继承**: 通过组合对象构建能力，降低耦合、提升可测试性与可替换性。
+- **三次法则（Rule of Three）**: 出现 3 次稳定重复后再抽象，避免过早抽象。
+- **函数保持小而专注**: 函数应聚焦单一目的；当出现多重目的或深层嵌套时及时拆分。
+- **依赖注入优先**: 通过构造参数注入依赖，减少隐式耦合，便于替换实现与隔离测试。
+- **显式优于隐式**: 代码应清楚表达意图、依赖、数据流和控制流，避免依赖隐藏约定、魔法行为或难以追踪的副作用。
+- **可读优于技巧**: 优先写“容易理解”的代码，而不是更短、更巧妙但需要额外推理的代码。
+- **先删再抽象**: 先清理无效/过时代码，再评估是否需要抽象，避免抽象固化历史包袱。
+- **按边界测试**: 各层可独立验证，优先保证边界清晰与行为可观测。
+
+## 4. Agent 工具约束
+
+### A. Python 脚本执行
+
+以下约束仅适用于 agent 为完成任务而临时编写或执行 Python 脚本的场景，不代表项目本身的 Python 环境要求。
+
+本系统无全局 Python 环境；agent 执行 Python 代码时，必须通过 `uv` 调度。
+
+#### 临时单行任务
+
+用于快速计算、系统检查或简单逻辑验证。
+
+- **格式**: `uv run python -c "<code_string>"`
+- **带依赖**: `uv run --with <package> python -c "..."`
+
+#### 独立任务脚本
+
+所有生成的 `.py` 脚本必须包含 PEP 723 内联依赖定义，确保脚本自包含且可直接运行。
+
+```python
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "httpx",
+#     "pandas",
+#     "rich",
+# ]
+# ///
+
+import httpx
+# 业务逻辑代码
+```
+
+- **执行命令**: `uv run <script_name>.py`
+
+#### 快速运行模式
+
+若脚本较短且不需长期保留，可使用 `--with` 风格。
+
+- **格式**: `uv run --with <pkg_1> --with <pkg_2> <script>.py`
+
+### B. 目录与资源清理
+
+- **无痕运行**: 除非用户明确要求，否则严禁执行 `uv venv` 或在当前目录生成 `.venv` 文件夹。
+- **临时文件**: 任务完成后，询问用户是否需要删除生成的 `.py` 临时脚本。
+
+<!-- codebase-memory-mcp:start -->
+# Codebase Knowledge Graph (codebase-memory-mcp)
+
+This project uses codebase-memory-mcp to maintain a knowledge graph of the codebase.
+ALWAYS prefer MCP graph tools over grep/glob/file-search for code discovery.
+
+## Priority Order
+1. `search_graph` — find functions, classes, routes, variables by pattern
+2. `trace_path` — trace who calls a function or what it calls
+3. `get_code_snippet` — read specific function/class source code
+4. `query_graph` — run Cypher queries for complex patterns
+5. `get_architecture` — high-level project summary
+
+## When to fall back to grep/glob
+- Searching for string literals, error messages, config values
+- Searching non-code files (Dockerfiles, shell scripts, configs)
+- When MCP tools return insufficient results
+
+## Examples
+- Find a handler: `search_graph(name_pattern=".*OrderHandler.*")`
+- Who calls it: `trace_path(function_name="OrderHandler", direction="inbound")`
+- Read source: `get_code_snippet(qualified_name="pkg/orders.OrderHandler")`
+<!-- codebase-memory-mcp:end -->

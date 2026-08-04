@@ -1,0 +1,4 @@
+interface:
+  display_name: "通过 PR 提交"
+  short_description: "将暂存内容通过新分支和 PR 安全地 squash 合并"
+  default_prompt: "使用 $ccccr-commit-pr 将暂存区内容通过 PR 提交并 squash 合并。"
