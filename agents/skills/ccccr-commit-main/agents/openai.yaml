@@ -1,4 +1,4 @@
 interface:
   display_name: "直接提交到 Main"
-  short_description: "将暂存区内容直接提交到 main 分支并安全推送到 origin"
-  default_prompt: "使用 $ccccr-commit-main 将暂存区内容直接提交并推送到 main。"
+  short_description: "将暂存内容提交到 main；同步时推送，领先时仅本地提交"
+  default_prompt: "使用 $ccccr-commit-main 提交暂存区内容；仅在 main 已同步时推送。"
