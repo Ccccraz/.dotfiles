@@ -3,7 +3,7 @@
 #
 # 用法:
 #   install.sh [--dry-run]           依次执行 AGENTS.md、skills 和 MCP 安装
-#   install.sh --links [--dry-run]   分发 agents/AGENTS.md 到各工具(reasonix / codex / opencode)
+#   install.sh --links [--dry-run]   分发 agents/AGENTS.md(reasonix 复制 / codex、opencode 链接)
 #   install.sh --skills [--dry-run]  链接本地 skills 并安装第三方 skills
 #   install.sh --mcp [--dry-run]     安装下方声明的第三方 MCP
 #
@@ -42,9 +42,21 @@ link_agents_file() {
     fi
 }
 
+copy_agents_file() {
+    local target="$1"
+
+    echo "> rm -f $target"
+    echo "> cp $AGENTS_DIR/AGENTS.md $target"
+    if [ "$DRY_RUN" -eq 0 ]; then
+        mkdir -p "$(dirname "$target")"
+        rm -f "$target"
+        cp "$AGENTS_DIR/AGENTS.md" "$target"
+    fi
+}
+
 cmd_links() {
-    echo "== AGENTS.md 分发链接 =="
-    link_agents_file "$HOME/.reasonix/AGENTS.md"
+    echo "== AGENTS.md 分发 =="
+    copy_agents_file "$HOME/.reasonix/AGENTS.md"
     link_agents_file "$HOME/.codex/AGENTS.md"
     link_agents_file "$HOME/.config/opencode/AGENTS.md"
     echo "完成。"
@@ -83,6 +95,9 @@ cmd_skills() {
     link_local_skill "ccccr-commit-message"
     link_local_skill "ccccr-commit-pr"
     link_local_skill "ccccr-commit-main"
+    link_local_skill "ccccr-worktree"
+    link_local_skill "ccccr-worktree-commit-pr"
+    link_local_skill "ccccr-worktree-commit-main"
     install_skill "OthmanAdi/planning-with-files" "planning-with-files-zh"
     install_skill "antfu/skills" "vite"
     install_skill "anthropics/skills" "pdf"

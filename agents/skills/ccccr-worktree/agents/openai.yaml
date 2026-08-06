@@ -1,0 +1,4 @@
+interface:
+  display_name: "Worktree 使用规范"
+  short_description: "在 .worktree/<分支> 创建开发 worktree，完成后不提交等待 review"
+  default_prompt: "使用 $ccccr-worktree 在 .worktree/<分支> 创建 worktree 并完成开发，不提交、等待 review。"

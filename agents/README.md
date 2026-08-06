@@ -34,7 +34,7 @@ agents/
 ./agents/install.sh --skills       # 链接本地 skill 并安装第三方 skills
 ```
 
-本仓库自有 skill 统一使用 `ccccr-` 前缀；`ccccr-commit-message`、`ccccr-commit-pr` 和 `ccccr-commit-main` 链接到 `~/.agents/skills/`。第三方 skill 通过 `install_skill "<owner/repo>" "<skill 名>"` 显式安装到 Universal。
+本仓库自有 skill 统一使用 `ccccr-` 前缀；`ccccr-commit-message`、`ccccr-commit-pr`、`ccccr-commit-main`、`ccccr-worktree`、`ccccr-worktree-commit-pr` 和 `ccccr-worktree-commit-main` 链接到 `~/.agents/skills/`。第三方 skill 通过 `install_skill "<owner/repo>" "<skill 名>"` 显式安装到 Universal。
 
 ### 安装 / 更新 MCP
 

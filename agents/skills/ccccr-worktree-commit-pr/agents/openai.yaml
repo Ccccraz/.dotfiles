@@ -1,0 +1,4 @@
+interface:
+  display_name: "Worktree 提交并发布"
+  short_description: "提交 worktree 改动，创建 PR，squash 合并后清理 worktree 与分支并同步 main"
+  default_prompt: "使用 $ccccr-worktree-commit-pr 将 worktree 中的改动提交并通过 PR 合并到 main。"
