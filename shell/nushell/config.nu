@@ -28,3 +28,5 @@ $env.config.show_banner = false
 
 # Tmux
 alias tmux = tmux -f ~/.config/tmux/tmux.conf
+
+use ($nu.default-config-dir | path join mise.nu)

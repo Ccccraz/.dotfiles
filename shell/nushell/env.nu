@@ -40,3 +40,6 @@ let cache_dir = if $nu.os-info.name == "windows" {
 
 mkdir $cache_dir
 carapace _carapace nushell | save --force $"($cache_dir)/init.nu"
+
+let mise_path = $nu.default-config-dir | path join mise.nu
+^mise activate nu | save $mise_path --force
