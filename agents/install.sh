@@ -122,6 +122,7 @@ cmd_skills() {
     install_skill "wshobson/agents" "postgresql-table-design"
     install_skill "wshobson/agents" "python-anti-patterns"
     install_skill "xixu-me/skills" "github-actions-docs"
+    install_skill "marimo-team/skills" "*"
     echo "完成。"
 }
 
