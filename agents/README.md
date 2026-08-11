@@ -26,7 +26,7 @@ agents/
 ./agents/install.sh --links        # 预览用 --dry-run 先看一遍
 ```
 
-将 `agents/AGENTS.md` 链接到 reasonix、codex 和 opencode 的全局配置目录；已有目标直接覆盖。
+将 `agents/AGENTS.md` 复制到 reasonix、zcode 的全局配置目录,链接到 codex 和 opencode 的全局配置目录;已有目标直接覆盖。
 
 ### 安装 / 更新 skills
 
