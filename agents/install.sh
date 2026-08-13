@@ -3,7 +3,7 @@
 #
 # 用法:
 #   install.sh [--dry-run]           依次执行 AGENTS.md、skills 和 MCP 安装
-#   install.sh --links [--dry-run]   分发 agents/AGENTS.md(reasonix、zcode 复制 / codex、opencode 链接)
+#   install.sh --links [--dry-run]   分发 agents/AGENTS.md(reasonix、zcode 复制 / codex、opencode、dsh 链接)
 #   install.sh --skills [--dry-run]  链接本地 skills 并安装第三方 skills
 #   install.sh --mcp [--dry-run]     安装下方声明的第三方 MCP
 #
@@ -60,6 +60,8 @@ cmd_links() {
     copy_agents_file "$HOME/.zcode/AGENTS.md"
     link_agents_file "$HOME/.codex/AGENTS.md"
     link_agents_file "$HOME/.config/opencode/AGENTS.md"
+    # deepseek-harness 全局指令:$DSH_HOME/AGENTS.md(DSH_HOME 未设置时默认 ~/.dsh)
+    link_agents_file "${DSH_HOME:-$HOME/.dsh}/AGENTS.md"
     echo "完成。"
 }
 
