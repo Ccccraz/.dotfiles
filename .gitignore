@@ -1,4 +1,8 @@
 history.txt
+
+# Local backup files
+*.bak
+
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudiocode,python,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,linux,visualstudiocode,python,node
 
