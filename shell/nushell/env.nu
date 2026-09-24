@@ -20,6 +20,7 @@ use std "path add"
 
 path add "/Users/ccccr/.local/bin"
 path add "/Users/ccccr/.volta/bin"
+path add "/Users/ccccr/.bun/bin"
 
 if $nu.os-info.name == "macos" {
     path add "/opt/homebrew/bin"
