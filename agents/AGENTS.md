@@ -39,7 +39,7 @@
 
 以下约束仅适用于 agent 为完成任务而临时编写或执行 Python 脚本的场景，不代表项目本身的 Python 环境要求。
 
-本系统无全局 Python 环境；agent 执行 Python 代码时，必须通过 `uv` 调度。
+全局 `python3` 存在但版本与依赖不受保证；agent 执行 Python 代码时，必须通过 `uv` 调度。
 
 #### 临时单行任务
 
@@ -78,6 +78,23 @@ import httpx
 
 - **无痕运行**: 除非用户明确要求，否则严禁执行 `uv venv` 或在当前目录生成 `.venv` 文件夹。
 - **临时文件**: 任务完成后，询问用户是否需要删除生成的 `.py` 临时脚本。
+
+### C. 文档查询（context7）
+
+查第三方库/框架/SDK 的 API、配置与迁移用法时，必须先用 `ctx7` 取最新文档，不要凭训练数据作答。
+
+- **两步走**: `ctx7 library <name> <query>` 先解析出 library ID（ID 带 `/` 前缀，如 `/facebook/react`），再用 `ctx7 docs <libraryId> <query>` 取文档与代码片段
+- **无需密钥**: 已通过 OAuth 登录，可用 `ctx7 whoami` 查看登录状态
+- **边界**: 只用于第三方依赖；查本仓库代码走上节的 codebase-memory 图工具
+
+### D. 代码图谱查询（codebase-memory）
+
+本节末尾由 codebase-memory-mcp 自动生成的提示块说明通用用法，以下是本机实测补充：
+
+- **工具名**: DSH 中为 `mcp__codebase-memory__<tool>`
+- **必传 `project`**: 除 `list_projects` 外所有工具都必须传；它不是路径，先 `list_projects` 取准确名称（形如 `Users-ccccr-repo-projects-...`）
+- **不要依赖 `ORDER BY`**: `query_graph` 的 `ORDER BY` 会被静默忽略（不报错但返回未排序结果）；取 top-N 用 `get_architecture` 的 `hotspots`，或在 `WHERE` 里设阈值后自行排序
+- **方法多于函数**: 复杂度、热点类查询用 `(f:Function OR f:Method)` 才能覆盖两类节点
 
 <!-- codebase-memory-mcp:start -->
 # Codebase Knowledge Graph (codebase-memory-mcp)
