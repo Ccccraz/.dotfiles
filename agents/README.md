@@ -7,7 +7,7 @@
 ```
 agents/
 ├── README.md       # 本文件
-├── AGENTS.md       # 共享设计原则(语言规范 + KISS + SOLID + Agent 工具约束),唯一权威
+├── AGENTS.md       # 全局 Agent 约定(个人风格 + 语言规范 + Python/工具路由),唯一权威
 └── install.sh      # 安装脚本:skills / mcp 清单内嵌 + AGENTS.md 分发
 ```
 
@@ -46,7 +46,7 @@ agents/
 
 ## 维护约定
 
-- **设计原则唯一权威是 `agents/AGENTS.md`**,经符号链接分发到各工具
+- **全局 Agent 约定唯一权威是 `agents/AGENTS.md`**,经符号链接分发到各工具
 - **codebase-memory 提示块**由 codebase-memory-mcp 工具自动插入/更新各 AGENTS.md(带 `<!-- -->` 标记),不要手动编辑
 - 运行时数据(secrets、sessions、cache、`auth.json`、`.infisical.json` 等)一律不入仓库
 - 配置文件中的绝对路径(如 `/Users/ccccr/.local/bin/codebase-memory-mcp`)为本机特定,换机器时需手动替换为 `$HOME` 对应路径
