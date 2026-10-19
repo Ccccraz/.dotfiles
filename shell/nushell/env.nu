@@ -24,6 +24,7 @@ path add "/Users/ccccr/.bun/bin"
 
 if $nu.os-info.name == "macos" {
     path add "/opt/homebrew/bin"
+    path add "/opt/homebrew/sbin"
 } else if $nu.os-info.name == "windows" {
 } else {
     path add "/home/linuxbrew/.linuxbrew/bin/brew"
