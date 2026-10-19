@@ -101,6 +101,7 @@ cmd_skills() {
     link_local_skill "ccccr-worktree"
     link_local_skill "ccccr-worktree-commit-pr"
     link_local_skill "ccccr-worktree-commit-main"
+    link_local_skill "zotero-cli"
     install_skill "OthmanAdi/planning-with-files" "planning-with-files-zh"
     install_skill "antfu/skills" "vite"
     install_skill "anthropics/skills" "pdf"
