@@ -13,6 +13,9 @@
 
 ## Git
 - 写 commit message 前，必须先读 `~/.dotfiles/agents/instructions/commit.md` 并按其格式写。
+- 会话已在 app worktree（路径含 `/.claude/worktrees/`）里就直接在其中工作，不再手建 worktree。
+- 只有在非仓库目录启动、需要改某个子仓库时，才手建同级 worktree：`git -C <repo> worktree add ../<repo>-<topic> -b <branch> origin/main`。
+- 开始任务前先 `git worktree list`；PR 已合并、工作区干净且本地 HEAD 等于 PR head 的，`git worktree remove` 并 `git branch -D`，然后告知用户。
 
 ## Python
 - 必须 typed：函数签名与公共数据结构都要标注。
