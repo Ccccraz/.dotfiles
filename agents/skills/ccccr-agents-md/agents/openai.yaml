@@ -1,0 +1,4 @@
+interface:
+  display_name: "维护 AGENTS.md"
+  short_description: "按 Firefox AGENTS.md 风格编写和维护 agent 指令文件"
+  default_prompt: "使用 $ccccr-agents-md 更新 AGENTS.md。"
