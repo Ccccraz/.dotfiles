@@ -28,7 +28,7 @@ agents/
 ./agents/install.sh --links        # 预览用 --dry-run 先看一遍
 ```
 
-将 `agents/AGENTS.md` 复制到 reasonix、zcode 的全局配置目录,链接到 codex、opencode、deepseek-harness 和 Claude Code 的全局配置目录;Claude Code 另链接 `agents/CLAUDE.md` 到 `~/.claude/CLAUDE.md`,通过 `@AGENTS.md` 导入;已有目标直接覆盖。deepseek-harness 的全局指令固定在 `$DSH_HOME/AGENTS.md`(`DSH_HOME` 未设置时默认为 `~/.dsh/AGENTS.md`),脚本按该路径软链接。reasonix、zcode 拿到的是复制件,修改 `AGENTS.md` 后需重新运行 `--links` 同步。
+将 `agents/AGENTS.md` 复制到 reasonix、zcode 的全局配置目录,链接到 codex、opencode、deepseek-harness 的全局配置目录;Claude Code 只链接 `agents/CLAUDE.md` 到 `~/.claude/CLAUDE.md`,其 `@AGENTS.md` 按真实路径导入本目录的 `AGENTS.md`(不再链接 `~/.claude/AGENTS.md`,避免重复加载);已有目标直接覆盖。deepseek-harness 的全局指令固定在 `$DSH_HOME/AGENTS.md`(`DSH_HOME` 未设置时默认为 `~/.dsh/AGENTS.md`),脚本按该路径软链接。reasonix、zcode 拿到的是复制件,修改 `AGENTS.md` 后需重新运行 `--links` 同步。
 
 ### 安装 / 更新 skills
 

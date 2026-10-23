@@ -61,8 +61,8 @@ cmd_links() {
     link_agents_file "$HOME/.config/opencode/AGENTS.md"
     # deepseek-harness 全局指令:$DSH_HOME/AGENTS.md(DSH_HOME 未设置时默认 ~/.dsh)
     link_agents_file "${DSH_HOME:-$HOME/.dsh}/AGENTS.md"
-    # Claude Code 只读 CLAUDE.md,由其 @AGENTS.md 导入同目录的 AGENTS.md
-    link_agents_file "$HOME/.claude/AGENTS.md"
+    # Claude Code:CLAUDE.md 的 @AGENTS.md 按软链真实路径导入本目录的 AGENTS.md;
+    # 不要再链接 ~/.claude/AGENTS.md,否则会被重复加载
     link_agents_file "$HOME/.claude/CLAUDE.md" "CLAUDE.md"
     echo "完成。"
 }
