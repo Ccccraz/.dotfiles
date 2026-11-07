@@ -11,7 +11,11 @@ carapace = "1.8.2"
 neovim = "0.12.6"
 lazygit = "0.66.2"
 uv = "0.13.7"
-btop = { version = "1.4.8", os = ["linux", "macos"] }
+# btop ships prebuilt binaries for Linux only; macOS gets it from brew below.
+btop = { version = "1.4.8", os = "linux" }
+
+[bootstrap.packages]
+"brew:btop" = { os = "macos" }
 
 [dotfiles]
 "~/.config/starship.toml" = "~/.dotfiles/shell/starship.toml"
