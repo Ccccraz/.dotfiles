@@ -412,3 +412,6 @@ $RECYCLE.BIN/
 
 .infisical.json
 
+
+# mise: per-machine preset selection written by `mise bootstrap --save-env`
+mise/miserc.local.toml

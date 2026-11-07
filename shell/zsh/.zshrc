@@ -1,20 +1,25 @@
-eval "$(starship init zsh)"
+# ~/.zshrc for the minimal preset (also usable on macOS).
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+[[ -d /opt/homebrew/bin ]] && export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+command -v mise >/dev/null && eval "$(mise activate zsh)"
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt share_history hist_ignore_dups
 bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/ccccr/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+autoload -Uz compinit && compinit
 
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+command -v carapace >/dev/null && source <(carapace _carapace zsh)
+command -v starship >/dev/null && eval "$(starship init zsh)"
 
-
-export STM32CubeMX_PATH=/Applications/STMicroelectronics/STM32CubeMX.app/Contents/Resources
+# Debian/Ubuntu paths; syntax highlighting must be sourced last.
+for plugin in \
+    /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
+    /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; do
+    [[ -r $plugin ]] && source "$plugin"
+done
+unset plugin

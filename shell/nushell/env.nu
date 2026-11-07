@@ -1,47 +1,36 @@
-# env.nu
-#
-# Installed by:
-# version = "0.104.1"
-#
-# Previously, environment variables were typically configured in `env.nu`.
-# In general, most configuration can and should be performed in `config.nu`
-# or one of the autoload directories.
-#
-# This file is generated for backwards compatibility for now.
-# It is loaded before config.nu and login.nu
-#
-# See https://www.nushell.sh/book/configuration.html
-#
-# Also see `help config env` for more options.
-#
-# You can remove these comments if you want or leave
-# them for future reference.
-use std "path add"
+# env.nu: loaded before config.nu. See https://www.nushell.sh/book/configuration.html
+use std/util "path add"
 
-path add "/Users/ccccr/.local/bin"
-path add "/Users/ccccr/.volta/bin"
-path add "/Users/ccccr/.bun/bin"
-
+# `path add` prepends, so entries added later take precedence.
 if $nu.os-info.name == "macos" {
-    path add "/opt/homebrew/bin"
-    path add "/opt/homebrew/sbin"
-} else if $nu.os-info.name == "windows" {
-} else {
-    path add "/home/linuxbrew/.linuxbrew/bin/brew"
+    let multipass = "/Library/Application Support/com.canonical.multipass/bin"
+    if ($multipass | path exists) { path add $multipass }
+    path add /opt/homebrew/sbin
+    path add /opt/homebrew/bin
 }
+
+# mise shims: every tool from [tools] in ~/.config/mise.
+let mise_shims = if $nu.os-info.name == "windows" {
+    $env.LOCALAPPDATA | path join mise shims
+} else {
+    $nu.home-dir | path join .local share mise shims
+}
+path add ($nu.home-dir | path join .local bin)
+path add $mise_shims
 
 $env.EDITOR = "code"
-
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
-let cache_dir = if $nu.os-info.name == "windows" {
-    $"($env.USERPROFILE)\\.cache\\carapace"
-} else {
-    $"($env.HOME)/.cache/carapace"
+# Regenerate shell integrations into the vendor autoload dir, which Nushell
+# sources after config.nu. A missing tool is skipped instead of failing.
+let autoload = $nu.data-dir | path join vendor autoload
+mkdir $autoload
+if (which starship | is-not-empty) {
+    starship init nu | save -f ($autoload | path join starship.nu)
 }
-
-mkdir $cache_dir
-carapace _carapace nushell | save --force $"($cache_dir)/init.nu"
-
-let mise_path = $nu.default-config-dir | path join mise.nu
-^mise activate nu | save $mise_path --force
+if (which carapace | is-not-empty) {
+    carapace _carapace nushell | save -f ($autoload | path join carapace.nu)
+}
+if (which zoxide | is-not-empty) {
+    zoxide init nushell | save -f ($autoload | path join zoxide.nu)
+}

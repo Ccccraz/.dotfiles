@@ -1,0 +1,18 @@
+# Shared by every preset. Select a preset with `mise -E <preset> bootstrap`;
+# install.sh / install.ps1 save the choice to miserc.local.toml.
+
+[settings.dotfiles]
+# Real symlinks on Windows too (needs Developer Mode or an elevated shell).
+windows_symlinks = true
+
+[tools]
+starship = "1.27.0"
+carapace = "1.8.2"
+neovim = "0.12.6"
+lazygit = "0.66.2"
+uv = "0.13.7"
+btop = { version = "1.4.8", os = ["linux", "macos"] }
+
+[dotfiles]
+"~/.config/starship.toml" = "~/.dotfiles/shell/starship.toml"
+"~/.gitconfig" = "~/.dotfiles/tools/git/.gitconfig"

@@ -1,0 +1,106 @@
+# full: a development machine I fully control (macOS, Linux desktop, Windows).
+
+[bootstrap.apt.sources.nushell]
+uris = "https://apt.fury.io/nushell/"
+suites = "/"
+key = "https://apt.fury.io/nushell/gpg.key"
+fingerprint = "F7939B750FA1789832D67A809E755FC365BF00D5"
+
+[bootstrap.packages]
+# macOS (mise installs formulae and casks itself; Homebrew is optional)
+"brew:nushell" = { os = "macos" }
+"brew-cask:kitty" = { os = "macos" }
+# Third-party tap: mise evaluates its Ruby definition, which needs Ruby >= 3
+# on PATH (the ruby tool below; install.sh provides it on a fresh Mac).
+"brew-cask:nikitabobko/tap/aerospace" = { os = "macos" }
+# macOS and Linux: font casks install into ~/Library/Fonts or ~/.local/share/fonts
+"brew-cask:font-maple-mono-nf-cn" = { os = ["macos", "linux"] }
+
+# Linux
+"apt:git" = "latest"
+"apt:curl" = "latest"
+"apt:build-essential" = "latest"
+"apt:unzip" = "latest"
+"apt:fontconfig" = "latest"
+"apt:fonts-noto-cjk" = "latest"
+"apt:fonts-noto-color-emoji" = "latest"
+"apt:kitty" = "latest"
+"apt:nushell" = "latest"
+
+# Windows
+"winget:Git.Git" = "latest"
+"winget:Nushell.Nushell" = "latest"
+"winget:Microsoft.PowerShell" = "latest"
+"winget:LLVM.LLVM" = "latest"
+"scoop:nerd-fonts/Maple-Mono-NF-CN" = "latest"
+
+[bootstrap.user]
+login_shell = "nu"
+
+[tools]
+ruby = { version = "4.0.9", os = "macos" }
+node = "26.13.0"
+pnpm = "12.16.1"
+bun = "1.4.4"
+gh = "2.103.3"
+just = "1.59.0"
+tree-sitter = "0.27.1"
+yazi = "26.9.1"
+ripgrep = "15.2.0"
+fd = "10.5.1"
+fzf = "0.74.5"
+jq = "1.8.2"
+bat = "0.26.1"
+zoxide = "0.10.0"
+dust = "1.2.7"
+duf = "0.9.1"
+fastfetch = "2.70.0"
+
+[dotfiles.nushell-env]
+source = "~/.dotfiles/shell/nushell/env.nu"
+variants = [
+  { os = "macos", target = "~/Library/Application Support/nushell/env.nu" },
+  { os = "linux", target = "~/.config/nushell/env.nu" },
+  { os = "windows", target = "~/AppData/Roaming/nushell/env.nu" },
+]
+
+[dotfiles.nushell-config]
+source = "~/.dotfiles/shell/nushell/config.nu"
+variants = [
+  { os = "macos", target = "~/Library/Application Support/nushell/config.nu" },
+  { os = "linux", target = "~/.config/nushell/config.nu" },
+  { os = "windows", target = "~/AppData/Roaming/nushell/config.nu" },
+]
+
+[dotfiles.nvim]
+source = "~/.dotfiles/tools/nvim"
+variants = [
+  { os = "unix", target = "~/.config/nvim" },
+  { os = "windows", target = "~/AppData/Local/nvim" },
+]
+
+[dotfiles.yazi]
+source = "~/.dotfiles/tools/yazi"
+variants = [
+  { os = "unix", target = "~/.config/yazi" },
+  { os = "windows", target = "~/AppData/Roaming/yazi/config" },
+]
+
+[dotfiles.kitty]
+source = "~/.dotfiles/tools/kitty"
+variants = [{ os = "unix", target = "~/.config/kitty" }]
+
+[dotfiles.aerospace]
+source = "~/.dotfiles/tools/aerospace"
+variants = [{ os = "macos", target = "~/.config/aerospace" }]
+
+[dotfiles.pwsh]
+source = "~/.dotfiles/shell/pwsh/Microsoft.PowerShell_profile.ps1"
+variants = [
+  { os = "windows", target = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" },
+]
+
+# Shared agent instructions and skills (bash only for now).
+[tasks.bootstrap]
+run = "bash ~/.dotfiles/agents/install.sh"
+run_windows = "echo skip agents/install.sh on Windows"

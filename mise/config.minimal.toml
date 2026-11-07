@@ -1,0 +1,20 @@
+# minimal: a basic Linux dev box (servers, lab devices) with zsh as login shell.
+
+[bootstrap.packages]
+"apt:curl" = "latest"
+"apt:git" = "latest"
+"apt:openssh-server" = "latest"
+"apt:build-essential" = "latest"
+"apt:zsh" = "latest"
+"apt:zsh-autosuggestions" = "latest"
+"apt:zsh-syntax-highlighting" = "latest"
+"apt:kitty-terminfo" = "latest"
+"apt:jq" = "latest"
+"apt:unzip" = "latest"
+"apt:file" = "latest"
+
+[bootstrap.user]
+login_shell = "zsh"
+
+[dotfiles]
+"~/.zshrc" = "~/.dotfiles/shell/zsh/.zshrc"
