@@ -1,7 +1,7 @@
 [user]
 	name = HuYang
 	email = huyangcommit@gmail.com
-	signingkey = ~/.ssh/main.pub
+	signingkey = ~/.ssh/github/main.pub
 [init]
 	defaultBranch = main
 [gpg]
