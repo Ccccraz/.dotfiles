@@ -17,6 +17,50 @@ fingerprint = "F7939B750FA1789832D67A809E755FC365BF00D5"
 # macOS and Linux: font casks install into ~/Library/Fonts or ~/.local/share/fonts
 "brew-cask:font-maple-mono-nf-cn" = { os = ["macos", "linux"] }
 
+# macOS apps and tools beyond the shell setup; trim to what every Mac needs.
+# CLI (Homebrew formulae)
+"brew:git" = { os = "macos" }
+"brew:wget" = { os = "macos" }
+"brew:ffmpeg" = { os = "macos" }
+# Development
+"brew-cask:visual-studio-code" = { os = "macos" }
+# Docker Desktop also provides the docker CLI and compose.
+"brew-cask:docker-desktop" = { os = "macos" }
+"brew-cask:dbx" = { os = "macos" }
+"brew-cask:drawio" = { os = "macos" }
+"brew-cask:figma" = { os = "macos" }
+"brew-cask:gcloud-cli" = { os = "macos" }
+# AI
+"brew-cask:claude" = { os = "macos" }
+"brew-cask:claude-code" = { os = "macos" }
+"brew-cask:chatgpt" = { os = "macos" }
+"brew-cask:codex" = { os = "macos" }
+"brew-cask:deepseek-harness" = { os = "macos" }
+# Network
+# netbird-ui (netbirdio/tap) stays a manual `brew install`: mise cannot evaluate its cask.
+# Chat and meetings
+"brew-cask:wechat" = { os = "macos" }
+"brew-cask:qq" = { os = "macos" }
+"brew-cask:feishu" = { os = "macos" }
+"brew-cask:tencent-meeting" = { os = "macos" }
+"brew-cask:telegram" = { os = "macos" }
+"brew-cask:whatsapp" = { os = "macos" }
+"brew-cask:discord" = { os = "macos" }
+"brew-cask:zoom" = { os = "macos" }
+# Office and reading
+"brew-cask:microsoft-edge" = { os = "macos" }
+"brew-cask:obsidian" = { os = "macos" }
+"brew-cask:zotero" = { os = "macos" }
+# Media and design
+"brew-cask:vlc" = { os = "macos" }
+# Utilities
+"brew-cask:bitwarden" = { os = "macos" }
+"brew-cask:utools" = { os = "macos" }
+"brew-cask:jordanbaird-ice" = { os = "macos" }
+"brew-cask:scroll-reverser" = { os = "macos" }
+# Fonts
+"brew-cask:font-cascadia-code" = { os = "macos" }
+
 # Linux
 "apt:git" = "latest"
 "apt:curl" = "latest"
