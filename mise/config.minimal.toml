@@ -9,6 +9,8 @@
 "apt:zsh-autosuggestions" = "latest"
 "apt:zsh-syntax-highlighting" = "latest"
 "apt:kitty-terminfo" = "latest"
+# Ghostty terminfo (Debian 13+ / ncurses 6.5+; older releases: ssh-terminfo in config.nu)
+"apt:ncurses-term" = "latest"
 "apt:jq" = "latest"
 "apt:unzip" = "latest"
 "apt:file" = "latest"
