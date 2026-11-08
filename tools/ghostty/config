@@ -1,0 +1,14 @@
+# Ghostty, kept in line with ../kitty/kitty.conf
+theme = Catppuccin Mocha
+font-family = "Maple Mono NF CN"
+font-size = 13
+
+copy-on-select = clipboard
+
+macos-titlebar-style = hidden
+window-subtitle = working-directory
+window-padding-x = 15
+window-padding-y = 15
+window-padding-balance = true
+background-opacity = 0.8
+background-blur = 30

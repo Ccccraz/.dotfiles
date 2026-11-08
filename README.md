@@ -32,7 +32,7 @@ irm https://raw.githubusercontent.com/Ccccraz/.dotfiles/main/install.ps1 | iex
 | `mise/config.toml` | 各预设共用:公共 CLI 工具、starship、git 配置 |
 | `mise/config.<preset>.toml` | 预设专属:系统包(apt/brew/winget/scoop)、工具、配置链接、登录 shell |
 | `shell/` | nushell、zsh、pwsh、starship 配置 |
-| `tools/` | git、nvim(LazyVim)、kitty、yazi、aerospace 配置 |
+| `tools/` | git、nvim(LazyVim)、kitty、ghostty、yazi、aerospace 配置 |
 | `agents/` | AI 工具共享指令与 skills,见 [agents/README.md](agents/README.md) |
 
 ## 维护
