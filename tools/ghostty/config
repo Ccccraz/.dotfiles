@@ -1,9 +1,12 @@
 # Ghostty, kept in line with ../kitty/kitty.conf
-theme = Catppuccin Mocha
+theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 font-family = "Maple Mono NF CN"
 font-size = 13
+cursor-style = bar
 
 copy-on-select = clipboard
+mouse-hide-while-typing = true
+macos-option-as-alt = true
 
 macos-titlebar-style = hidden
 window-subtitle = working-directory
@@ -12,3 +15,13 @@ window-padding-y = 15
 window-padding-balance = true
 background-opacity = 0.8
 background-blur = 30
+window-save-state = always
+
+# Kitty-like cursor trail (shaders/LICENSE: sahaj-b/ghostty-cursor-shaders, MIT)
+custom-shader = shaders/cursor_tail.glsl
+
+# Copy Ghostty's terminfo to new SSH hosts and forward COLORTERM and friends.
+shell-integration-features = ssh-terminfo,ssh-env
+
+# Drop-down terminal from anywhere (needs Accessibility permission on macOS).
+keybind = global:cmd+grave_accent=toggle_quick_terminal

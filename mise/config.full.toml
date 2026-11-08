@@ -152,8 +152,8 @@ source = "~/.dotfiles/tools/kitty"
 variants = [{ os = "unix", target = "~/.config/kitty" }]
 
 [dotfiles.ghostty]
-source = "~/.dotfiles/tools/ghostty/config"
-variants = [{ os = "unix", target = "~/.config/ghostty/config" }]
+source = "~/.dotfiles/tools/ghostty"
+variants = [{ os = "unix", target = "~/.config/ghostty" }]
 
 [dotfiles.aerospace]
 source = "~/.dotfiles/tools/aerospace"
