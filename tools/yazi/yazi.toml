@@ -1,0 +1,17 @@
+# ~/.config/yazi/yazi.toml
+
+[mgr]
+sort_by = "natural"
+sort_dir_first = true
+show_hidden = true
+
+# Git status signs in the file list (plugins/git.yazi)
+[[plugin.prepend_fetchers]]
+url = "*"
+run = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url = "*/"
+run = "git"
+group = "git"

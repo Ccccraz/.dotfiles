@@ -1,0 +1,5 @@
+# ~/.config/yazi/theme.toml
+# Follow the system light/dark mode, like Ghostty.
+[flavor]
+dark = "catppuccin-mocha"
+light = "catppuccin-latte"
