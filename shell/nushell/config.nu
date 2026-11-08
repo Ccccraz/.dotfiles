@@ -34,3 +34,23 @@ def ssh-terminfo [host: string, --system] {
         $source | ^ssh $host -- tic -x -
     }
 }
+
+# Update mise, the tools it manages (to the newest release),
+# the [bootstrap.packages], Homebrew, and uv tools.
+def update [] {
+    if $nu.os-info.name == "windows" {
+        ^winget upgrade --id jdx.mise --exact --silent
+    } else {
+        ^mise self-update --yes
+    }
+    ^mise upgrade --yes
+    ^mise bootstrap packages upgrade --yes
+    if (which brew | is-not-empty) {
+        ^brew update
+        ^brew upgrade
+        ^brew cleanup
+    }
+    if (which uv | is-not-empty) {
+        ^uv tool upgrade --all
+    }
+}

@@ -37,6 +37,6 @@ irm https://raw.githubusercontent.com/Ccccraz/.dotfiles/main/install.ps1 | iex
 
 ## 维护
 
-- 升级 CLI 工具:`mise up --bump`,把新版本写回 `mise/*.toml`。
+- 一键升级:在 nushell 里执行 `update`,依次升级 mise、所有工具(配置里都写 `latest`)、系统包、brew 和 uv tool。
 - 升级系统包:`mise bootstrap packages upgrade`。
 - 新增配置链接:在对应 `mise/*.toml` 的 `[dotfiles]` 里加一项,然后 `mise bootstrap --only dotfiles`。
