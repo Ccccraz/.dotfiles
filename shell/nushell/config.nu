@@ -23,3 +23,24 @@ def update [] {
         ^uv tool upgrade --all
     }
 }
+
+# Remove package caches and unused versions left by mise, the system
+# package managers, and language package managers.
+def clean [] {
+    ^mise prune --yes
+    ^mise cache clear
+    if (which brew | is-not-empty) {
+        ^brew autoremove
+        ^brew cleanup --prune=all --scrub
+    }
+    if (which apt-get | is-not-empty) {
+        ^sudo apt-get autoremove --purge -y
+        ^sudo apt-get clean
+    }
+    if (which scoop | is-not-empty) { ^scoop cleanup --all --cache }
+    if (which uv | is-not-empty) { ^uv cache clean }
+    if (which npm | is-not-empty) { ^npm cache clean --force }
+    if (which pnpm | is-not-empty) { ^pnpm store prune }
+    if (which bun | is-not-empty) { ^bun pm cache rm }
+    if (which pixi | is-not-empty) { ^pixi clean cache --yes }
+}
