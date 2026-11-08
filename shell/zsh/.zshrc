@@ -3,6 +3,8 @@
 [[ -d /opt/homebrew/bin ]] && export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
+# Bitwarden SSH agent (git SSH signing reads only SSH_AUTH_SOCK).
+[[ -S ~/.bitwarden-ssh-agent.sock ]] && export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
 command -v mise >/dev/null && eval "$(mise activate zsh)"
 
 HISTFILE=~/.zsh_history

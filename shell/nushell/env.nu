@@ -21,6 +21,13 @@ path add $mise_shims
 $env.EDITOR = "nvim"
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
+# Bitwarden SSH agent. Git's SSH commit signing (ssh-keygen -Y sign) only
+# reads SSH_AUTH_SOCK, not IdentityAgent from ~/.ssh/config.
+let bitwarden_sock = $nu.home-dir | path join .bitwarden-ssh-agent.sock
+if ($bitwarden_sock | path exists) {
+    $env.SSH_AUTH_SOCK = $bitwarden_sock
+}
+
 # Regenerate shell integrations into the vendor autoload dir, which Nushell
 # sources after config.nu. A missing tool is skipped instead of failing.
 let autoload = $nu.data-dir | path join vendor autoload
