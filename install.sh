@@ -66,8 +66,8 @@ main() {
     # On macOS, the aerospace cask comes from a third-party tap whose Ruby
     # definition mise needs Ruby >= 3 to read (keep in sync with mise/config.full.toml).
     if [ "$(uname -s)" = Darwin ]; then
-        mise install ruby@4.0.9
-        PATH="$(mise where ruby@4.0.9)/bin:$PATH"
+        mise install ruby@latest
+        PATH="$(mise where ruby@latest)/bin:$PATH"
     fi
     # shellcheck disable=SC2086
     mise -E "$preset" bootstrap \
