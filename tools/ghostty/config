@@ -2,7 +2,6 @@
 theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 font-family = "Maple Mono NF CN"
 font-size = 13
-cursor-style = bar
 
 copy-on-select = clipboard
 mouse-hide-while-typing = true
@@ -16,9 +15,6 @@ window-padding-balance = true
 background-opacity = 0.8
 background-blur = 30
 window-save-state = always
-
-# Comet-like cursor trail (shaders/LICENSE: sahaj-b/ghostty-cursor-shaders, MIT)
-custom-shader = shaders/cursor_tail.glsl
 
 # Copy Ghostty's terminfo to new SSH hosts and forward COLORTERM and friends.
 shell-integration-features = ssh-terminfo,ssh-env
