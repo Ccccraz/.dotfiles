@@ -44,3 +44,14 @@ def clean [] {
     if (which bun | is-not-empty) { ^bun pm cache rm }
     if (which pixi | is-not-empty) { ^pixi clean cache --yes }
 }
+
+# Start yazi and cd to the directory it was in on exit.
+def --env y [...args] {
+    let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+    ^yazi ...$args --cwd-file $tmp
+    let cwd = (open $tmp)
+    if $cwd != "" and $cwd != $env.PWD {
+        cd $cwd
+    }
+    rm -fp $tmp
+}
