@@ -1,4 +1,4 @@
-# Ghostty, kept in line with ../kitty/kitty.conf
+# Ghostty
 theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 font-family = "Maple Mono NF CN"
 font-size = 13
@@ -17,7 +17,7 @@ background-opacity = 0.8
 background-blur = 30
 window-save-state = always
 
-# Kitty-like cursor trail (shaders/LICENSE: sahaj-b/ghostty-cursor-shaders, MIT)
+# Comet-like cursor trail (shaders/LICENSE: sahaj-b/ghostty-cursor-shaders, MIT)
 custom-shader = shaders/cursor_tail.glsl
 
 # Copy Ghostty's terminfo to new SSH hosts and forward COLORTERM and friends.

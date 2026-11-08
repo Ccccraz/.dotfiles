@@ -9,7 +9,6 @@ fingerprint = "F7939B750FA1789832D67A809E755FC365BF00D5"
 [bootstrap.packages]
 # macOS (mise installs formulae and casks itself; Homebrew is optional)
 "brew:nushell" = { os = "macos" }
-"brew-cask:kitty" = { os = "macos" }
 "brew-cask:ghostty" = { os = "macos" }
 # Third-party tap: mise evaluates its Ruby definition, which needs Ruby >= 3
 # on PATH (the ruby tool below; install.sh provides it on a fresh Mac).
@@ -69,7 +68,6 @@ fingerprint = "F7939B750FA1789832D67A809E755FC365BF00D5"
 "apt:fontconfig" = "latest"
 "apt:fonts-noto-cjk" = "latest"
 "apt:fonts-noto-color-emoji" = "latest"
-"apt:kitty" = "latest"
 # Not in the Debian/Ubuntu archives; the snap needs classic confinement.
 "snap:ghostty" = { classic = true }
 "apt:nushell" = "latest"
@@ -146,10 +144,6 @@ variants = [
   { os = "unix", target = "~/.config/yazi" },
   { os = "windows", target = "~/AppData/Roaming/yazi/config" },
 ]
-
-[dotfiles.kitty]
-source = "~/.dotfiles/tools/kitty"
-variants = [{ os = "unix", target = "~/.config/kitty" }]
 
 [dotfiles.ghostty]
 source = "~/.dotfiles/tools/ghostty"

@@ -22,7 +22,7 @@ irm https://raw.githubusercontent.com/Ccccraz/.dotfiles/main/install.ps1 | iex
 
 | 预设 | 平台 | 内容 |
 |------|------|------|
-| `full` | macOS、Linux、Windows | 完全控制的开发机:nushell(登录 shell)、kitty、aerospace、LazyVim、Maple Mono 字体、全部 CLI 工具、agents |
+| `full` | macOS、Linux、Windows | 完全控制的开发机:nushell(登录 shell)、Ghostty、aerospace、LazyVim、Maple Mono 字体、全部 CLI 工具、agents |
 | `minimal` | Linux | 基础 dev 环境:zsh(登录 shell)+ 插件、starship、carapace、neovim、lazygit、uv、btop |
 
 ## 目录
@@ -32,7 +32,7 @@ irm https://raw.githubusercontent.com/Ccccraz/.dotfiles/main/install.ps1 | iex
 | `mise/config.toml` | 各预设共用:公共 CLI 工具、starship、git 配置 |
 | `mise/config.<preset>.toml` | 预设专属:系统包(apt/brew/winget/scoop)、工具、配置链接、登录 shell |
 | `shell/` | nushell、zsh、pwsh、starship 配置 |
-| `tools/` | git、nvim(LazyVim)、kitty、ghostty、yazi、aerospace 配置 |
+| `tools/` | git、nvim(LazyVim)、ghostty、yazi、aerospace 配置 |
 | `agents/` | AI 工具共享指令与 skills,见 [agents/README.md](agents/README.md) |
 
 ## 维护

@@ -8,7 +8,6 @@
 "apt:zsh" = "latest"
 "apt:zsh-autosuggestions" = "latest"
 "apt:zsh-syntax-highlighting" = "latest"
-"apt:kitty-terminfo" = "latest"
 # Ghostty terminfo on Debian 13+ (ncurses 6.5+); Ghostty's ssh-terminfo covers older hosts
 "apt:ncurses-term" = "latest"
 "apt:jq" = "latest"
