@@ -18,7 +18,7 @@ let mise_shims = if $nu.os-info.name == "windows" {
 path add ($nu.home-dir | path join .local bin)
 path add $mise_shims
 
-$env.EDITOR = "code"
+$env.EDITOR = "nvim"
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 
 # Regenerate shell integrations into the vendor autoload dir, which Nushell

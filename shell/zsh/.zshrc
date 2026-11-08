@@ -2,6 +2,7 @@
 
 [[ -d /opt/homebrew/bin ]] && export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export EDITOR=nvim
 command -v mise >/dev/null && eval "$(mise activate zsh)"
 
 HISTFILE=~/.zsh_history
